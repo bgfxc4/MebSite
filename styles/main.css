@@ -9,8 +9,8 @@ body{
 }
 
 #logoIMG{
-    width: 150px;
-    height: 84px;
+    width: 230px;
+    height: 130px;
 }
 
 #logo{
@@ -30,4 +30,20 @@ body{
 
 #navigation a{
     color:#ecf0f1;
+    padding: 8px;
+}
+
+#navigation a:hover{
+    color: #bdc3c7;
+}
+
+#image img{
+    width: 100%;
+    margin-top:32px;
+    margin-bottom:32px;
+}
+
+#main{
+    width: 60%;
+    color: #ecf0f1;
 }
