@@ -48,3 +48,10 @@ body{
     color: #ecf0f1;
     margin:auto;
 }
+
+#footer{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;   
+    color:#ecf0f1;
+    margin-top: 64px;
+}
