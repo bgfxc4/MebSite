@@ -1,6 +1,6 @@
 (function(){
 
-var gitsToDisplay = ['bgfxc4/MebSite', 'MetaMuffin/marchat', 'MetaMuffin/g-code-transpiler'];
+var gitsToDisplay = ['bgfxc4/MebSite','bgfxc4/twitter-bot', 'MetaMuffin/marchat', 'MetaMuffin/g-code-transpiler'];
 
 window.onload = function load(){
     console.log("windwow is loaded");
