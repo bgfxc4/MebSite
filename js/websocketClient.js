@@ -33,7 +33,7 @@
         var pckgCont = split[1];
 
         if(pckgName == "RandBytes"){
-            sendToServer("login:" + await sha256(pckgCont + username + password));
+            sendToServer("login:" + await SHA512(pckgCont + username + password));
         }else if(pckgName =="loggedIn"){
             window.alert("logged in")
         }else if (pckgName =="loginFailed"){
@@ -42,20 +42,11 @@
     }
 
 
-    async function sha256(message) {
-        // encode as UTF-8
-        const msgBuffer = new TextEncoder('utf-8').encode(message);
-      
-        // hash the message
-        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-      
-        // convert ArrayBuffer to Array
-        const hashArray = Array.from(new Uint8Array(hashBuffer));
-      
-        // convert bytes to hex string
-        const hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
-        console.log("hashing " + message + " to "  + hashHex);
-        return hashHex;
+    async function SHA512(message) {    
+        var hash = sha512.create();
+        hash.update(message);
+        hash.hex();
+        return hash;
       }
 })();
     
