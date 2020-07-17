@@ -34,6 +34,10 @@
 
         if(pckgName == "RandBytes"){
             sendToServer("login:" + await sha256(pckgCont + username + password));
+        }else if(pckgName =="loggedIn"){
+            window.alert("logged in")
+        }else if (pckgName =="loginFailed"){
+            window.alert("login Failed!");
         }
     }
 
