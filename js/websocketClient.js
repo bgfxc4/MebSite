@@ -19,7 +19,8 @@
             username = document.getElementById("usernameTxtField").value;
             password = document.getElementById("passwrdTxtField").value;
             sendToServer("reqRandBytes:");
-        };
+            document.getElementById("passwrdTxtField").value = '';
+        }; 
     }
 
     function sendToServer(toSend){
