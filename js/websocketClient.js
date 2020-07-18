@@ -2,8 +2,8 @@
 
     var username;
     var password;
-    const socket = new WebSocket("ws://localhost:5554");
-    //const socket = new WebSocket("ws://marchat.zapto.org:5554");
+    var sessID;
+    const socket = new WebSocket("wss://marchat.zapto.org/main-server");
 
     socket.onopen = function(e) {
         console.log("[open] Connection established");
@@ -37,7 +37,8 @@
             sendToServer("login:" + await SHA512(pckgCont + username + password));
         }else if(pckgName =="loggedIn"){
             window.alert("logged in");
-            console.log(document.cookie);
+            sessID = decryptAes(password, pckgCont);
+            console.log(sessID);
         }else if (pckgName =="loginFailed"){
             window.alert("login Failed!");
         }else if(pckgName == "cookie"){
@@ -53,4 +54,14 @@
         return hash;
       }
 })();
+
+function encryptAes(key, text){
+    var encrypted = CryptoJS.AES.encrypt(text, key).toString();
+    return encrypted;
+}
+
+function decryptAes(key, text){
+    var decrypted = CryptoJS.AES.decrypt(text, key);
+    return decrypted.toString(CryptoJS.enc.Utf8);
+}
     
