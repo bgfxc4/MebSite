@@ -2,8 +2,8 @@
 
     var username;
     var password;
-    //var socket = new WebSocket("ws://marchat.zapto.org:5554");
-    var socket = new WebSocket("ws://marchat.zapto.org:5554");
+    const socket = new WebSocket("ws://localhost:5554");
+    //const socket = new WebSocket("ws://marchat.zapto.org:5554");
 
     socket.onopen = function(e) {
         console.log("[open] Connection established");
@@ -36,9 +36,12 @@
         if(pckgName == "RandBytes"){
             sendToServer("login:" + await SHA512(pckgCont + username + password));
         }else if(pckgName =="loggedIn"){
-            window.alert("logged in")
+            window.alert("logged in");
+            console.log(document.cookie);
         }else if (pckgName =="loginFailed"){
             window.alert("login Failed!");
+        }else if(pckgName == "cookie"){
+
         }
     }
 
