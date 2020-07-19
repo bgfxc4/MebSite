@@ -4,12 +4,11 @@
     var password = document.cookie.split('; ').find(row => row.startsWith('password')).split('=')[1];;
     var sessID = document.cookie.split('; ').find(row => row.startsWith('sessID')).split('=')[1];;
 
-
-
     const socket = new WebSocket("wss://marchat.zapto.org/main-server");
 
     socket.onopen = function(e) {
         console.log("[open] Connection established");
+        sendToServer("validate:" + decryptAes(password, sessID));
         };
         
         socket.onmessage = function(event) {
