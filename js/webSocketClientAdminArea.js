@@ -6,9 +6,10 @@
 
     const socket = new WebSocket("wss://marchat.zapto.org/main-server");
 
-    socket.onopen = function(e) {
+    socket.onopen = async function(e) {
         console.log("[open] Connection established");
-        sendToServer("validate:" + SHA512(sessID  + password));
+        var hash = await SHA512(sessID  + password);
+        sendToServer("validate:" + hash);
         };
         
         socket.onmessage = function(event) {
@@ -32,7 +33,8 @@
     }
 
 
-    async function SHA512(message) {    
+    async function SHA512(message) {  
+        console.log("hashing: " + message);  
         var hash = sha512.create();
         hash.update(message);
         hash.hex();
