@@ -8,7 +8,7 @@
 
     socket.onopen = function(e) {
         console.log("[open] Connection established");
-        sendToServer("validate:" + decryptAes(password, sessID));
+        sendToServer("validate:" + SHA512(sessID  + password));
         };
         
         socket.onmessage = function(event) {
