@@ -1,8 +1,11 @@
 (function(){
 
-    var username;
-    var password;
-    var sessID;
+    var username = document.cookie.split('; ').find(row => row.startsWith('username')).split('=')[1];;
+    var password = document.cookie.split('; ').find(row => row.startsWith('password')).split('=')[1];;
+    var sessID = document.cookie.split('; ').find(row => row.startsWith('sessID')).split('=')[1];;
+
+
+
     const socket = new WebSocket("wss://marchat.zapto.org/main-server");
 
     socket.onopen = function(e) {
@@ -15,12 +18,7 @@
         };
     
     window.onload = function(){
-        document.getElementById("loginButton").onclick = function(){
-            username = document.getElementById("usernameTxtField").value;
-            password = document.getElementById("passwrdTxtField").value;
-            sendToServer("reqRandBytes:");
-            document.getElementById("passwrdTxtField").value = '';
-        }; 
+        console.log(document.cookie.toString());
     }
 
     function sendToServer(toSend){
@@ -31,21 +29,7 @@
     async function processMessage(msg){
         var split = msg.split(":", 2);
         var pckgName = split[0];
-        var pckgCont = msg.substring(msg.indexOf(':')+1);
-
-        if(pckgName == "RandBytes"){
-            sendToServer("login:" + await SHA512(pckgCont + username + password));
-        }else if(pckgName =="loggedIn"){
-            window.alert("logged in");
-            sessID = decryptAes(password, pckgCont);
-            console.log(sessID);
-            document.cookie = "username=" + username;
-            document.cookie = "sessID=" + sessID;
-            document.cookie = "password=" + password;
-            window.location.href = "./adminArea.html";
-        }else if (pckgName =="loginFailed"){
-            window.alert("login Failed!");
-        }
+        var pckgCont = msg.substring(msg.indexOf(':')+1)
     }
 
 
@@ -66,4 +50,3 @@
         return decrypted.toString(CryptoJS.enc.Utf8);
     }
 })();
-    

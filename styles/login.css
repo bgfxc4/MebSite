@@ -19,7 +19,7 @@ html{
       rgba(0, 0, 0, 0.7)
     ),
     /* bottom, image */
-    url(../../images/backgroundImage.jpg);
+    url(../images/backgroundImage.jpg);
     background-repeat: repeat;
     background-size: cover;
 }
@@ -37,8 +37,9 @@ h3{
 
 
 input{
-    width: 30%;
+    width: 50%;
     height: 25px;
+    max-width: 300px;
     margin-top:12px;
 }
 
