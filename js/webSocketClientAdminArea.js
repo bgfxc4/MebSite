@@ -24,6 +24,7 @@
         };
     
     window.onload = function(){
+        onWindowLoad();
         console.log(document.cookie.toString());
     }
 
@@ -40,6 +41,17 @@
         if(pckgName == "validate"){
             if(pckgCont == "false"){
                 document.body.innerHTML = '<h1> Permission denied!<\h1>';
+            }
+        }else if(pckgName == "wsStatus"){
+            var split2 = pckgCont.split(" ", 2);
+            var first = split2[0];
+            var second = pckgCont.substring(pckgCont.indexOf(' ')+1);
+
+            console.log(second);
+            if(second == "true"){
+                document.getElementById(first + "WsStatus").textContent = first + ": online";
+            }else{
+                document.getElementById(first + "WsStatus").textContent = first + ": offline";   
             }
         }
     }

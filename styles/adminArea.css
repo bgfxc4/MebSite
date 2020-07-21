@@ -33,3 +33,28 @@ h1{
     color:#ecf0f1;
     text-align: center;
 }
+
+.collapsible {
+    background-color:transparent;
+    color: #ecf0f1;
+    cursor: pointer;
+    padding: 18px;
+    padding-top: 30px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 20px;
+  }
+  
+  .active, .collapsible:hover {
+    background-color: rgba(248, 248, 248, 0.116);
+  }
+  
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1ad;
+    text-align: center;
+  }
