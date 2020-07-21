@@ -1,8 +1,14 @@
 (function(){
 
-    var username = document.cookie.split('; ').find(row => row.startsWith('username')).split('=')[1];;
-    var password = document.cookie.split('; ').find(row => row.startsWith('password')).split('=')[1];;
-    var sessID = document.cookie.split('; ').find(row => row.startsWith('sessID')).split('=')[1];;
+    var username = "";
+    var password = ";"
+    var sessID = "";
+    try{
+    username = document.cookie.split('; ').find(row => row.startsWith('username')).split('=')[1];;
+    password = document.cookie.split('; ').find(row => row.startsWith('password')).split('=')[1];;
+    sessID = document.cookie.split('; ').find(row => row.startsWith('sessID')).split('=')[1];;
+    }catch{
+    }
 
     const socket = new WebSocket("wss://marchat.zapto.org/main-server");
 
@@ -29,7 +35,13 @@
     async function processMessage(msg){
         var split = msg.split(":", 2);
         var pckgName = split[0];
-        var pckgCont = msg.substring(msg.indexOf(':')+1)
+        var pckgCont = msg.substring(msg.indexOf(':')+1);
+
+        if(pckgName == "validate"){
+            if(pckgCont == "false"){
+                document.body.innerHTML = '<h1> Permission denied!<\h1>';
+            }
+        }
     }
 
 

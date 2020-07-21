@@ -15,13 +15,9 @@
         };
     
     window.onload = function(){
-        document.getElementById("loginButton").onclick = function(){
-            username = document.getElementById("usernameTxtField").value;
-            password = document.getElementById("passwrdTxtField").value;
-            sendToServer("reqRandBytes:");
-            document.getElementById("passwrdTxtField").value = '';
+            document.getElementById('loginButton').addEventListener('click', login);
+            document.addEventListener('keypress', (event) => {if(event.key == 'Enter'){login()}});
         }; 
-    }
 
     function sendToServer(toSend){
         socket.send(toSend);
@@ -36,7 +32,6 @@
         if(pckgName == "RandBytes"){
             sendToServer("login:" + await SHA512(pckgCont + username + password));
         }else if(pckgName =="loggedIn"){
-            window.alert("logged in");
             sessID = decryptAes(password, pckgCont);
             console.log(sessID);
             document.cookie = "username=" + username;
@@ -48,6 +43,12 @@
         }
     }
 
+    function login(){
+        username = document.getElementById("usernameTxtField").value;
+        password = document.getElementById("passwrdTxtField").value;
+        sendToServer("reqRandBytes:");
+        document.getElementById("passwrdTxtField").value = '';
+    }
 
     async function SHA512(message) {    
         var hash = sha512.create();
