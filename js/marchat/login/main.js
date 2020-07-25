@@ -24,8 +24,8 @@ function tryLogin(){
     }
     var data = {
         "username":username,
-        "password":sha256(password),
-        "anti_replay":sha256(sha256(password) + " " + Date.now()),
+        "password":await sha256(password),
+        "anti_replay":await sha256(await sha256(password) + " " + Date.now()),
         "timestamp":Date.now()
         };
     sendPacket("login" ,data);
