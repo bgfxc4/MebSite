@@ -35,7 +35,7 @@ function sendPacket(name,data){
 function handleMessage(msg){
     var pckgName = msg.split(":")[0]
     console.log("pckgName: " + pckgName);
-    var pckgContent = JSON.parse(atob(f.split(":")[1]));
+    var pckgContent = JSON.parse(atob(msg.split(":")[1]));
     console.log("pckgContent: " + pckgContent);
 
     if(pckgName == "error"){
