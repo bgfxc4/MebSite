@@ -3,11 +3,7 @@ var ws;
 window.onload = async () => {
     ws = new WebSocket(`wss://marchat.zapto.org/marchat`)
     ws.onmessage = (ev) => {
-        console.log(ev.data.toString())
-        var f = ev.data.toString()
-        console.log(f.split(":")[0]);
-        console.log(JSON.parse(atob(f.split(":")[1])));
-        
+        handleMessage(ev.data.toString());
     }
     ws.onopen = async () => {
         console.log("WS_OPEN");
@@ -19,7 +15,7 @@ window.onload = async () => {
 async function tryLogin() {
     var username = document.getElementById("usernameTxtField").value;
     var password = document.getElementById("passwordTextField").value;
-    var hashedPasswd = await sha256(password)
+    var hashedPasswd = await sha256(password);
     var data = {
         username: username,
         password: hashedPasswd,
@@ -34,6 +30,17 @@ function sendPacket(name,data){
     var packet = name + ":" + btoa(JSON.stringify(data));
     ws.send(packet);
     console.log("sending " + packet + " to the server");
+}
+
+function handleMessage(msg){
+    var pckgName = msg.split(":")[0]
+    console.log("pckgName: " + pckgName);
+    var pckgContent = JSON.parse(atob(f.split(":")[1]));
+    console.log("pckgContent: " + pckgContent);
+
+    if(pckgName == "error"){
+        alert(pckgContent.message);
+    }
 }
 
 async function sha256(message) {
