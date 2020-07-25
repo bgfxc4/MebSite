@@ -36,7 +36,7 @@ function handleMessage(msg){
     var pckgName = msg.split(":")[0]
     console.log("pckgName: " + pckgName);
     var pckgContent = JSON.parse(atob(msg.split(":")[1]));
-    console.log("pckgContent: " + pckgContent);
+    console.log("pckgContent: " + pckgContent.toString());
 
     if(pckgName == "error"){
         alert(pckgContent.message);
