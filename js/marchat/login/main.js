@@ -15,10 +15,27 @@ window.onload = async () => {
     ws.onclose = () => console.log("WS_CLOSE")
     ws.onerror = (ev) => console.log(`WS_ERROR: ${ev}`)
 }
+function tryLogin(){
+    var username = document.getElementById("usernameTxtField").value;
+    var password = document.getElementById("passdwTxtField").value;
+    if(username == "" || password == ""){
+        alert("The input cant be blank!");
+        return;
+    }
+    var data = {
+        "username":username,
+        "password":sha256(password),
+        "anti_replay":sha256(sha256(password) + " " + Date.now()),
+        "timestamp":Date.now()
+        };
+    sendPacket("login" ,data);
 
+}
 
 function sendPacket(name,data){
-    ws.send(name + ":" + btoa(JSON.stringify(data)))
+    var packet = name + ":" + btoa(JSON.stringify(data));
+    ws.send(packet);
+    console.log("sending " + packet + " to the server");
 }
 
 async function sha256(message) {
