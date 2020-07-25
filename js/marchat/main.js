@@ -1,7 +1,7 @@
 var ws;
 
 window.onload = async () => {
-    ws = new WebSocket(`ws://marchat.zapto.org:5555`)
+    ws = new WebSocket(`wss://marchat.zapto.org/marchat`)
     ws.onmessage = (ev) => {
         console.log(ev.data.toString())
         var f = ev.data.toString()
