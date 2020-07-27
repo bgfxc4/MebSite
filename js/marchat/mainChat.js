@@ -50,6 +50,7 @@ function handleMessage(msg){
             console.log("logged in!");
         }
     }else if(pckgName == "channel-list"){
+        console.log("test channellist lenth: " + pckgContent.channels.lenth);
         var channelList = document.getElementById("channel-list");
         for(var i = 0; i < pckgContent.channels.lenth; i++){
             var button = document.createElement("input").setAttribute("type" ,"button").setAttribute("value", pckgContent.channels[i]).setAttribute("class", "channel-button");
