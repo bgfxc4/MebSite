@@ -53,7 +53,8 @@ function handleMessage(msg){
         if(pckgContent.packet == "login"){
             document.cookie = "username=" + userUsername;
             document.cookie = "password=" + userPassword;
-            window.location.href = "/js/marchat/chat/chat.html";
+            console.log(document.cookie.toString());
+            //window.location.href = "/js/marchat/chat/chat.html";
         }
     }
 }
