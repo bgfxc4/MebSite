@@ -35,6 +35,25 @@ async function tryLogin() {
     sendPacket("login", data);
 }
 
+
+async function tryRegister() {
+    var username = document.getElementById("usernameTxtField").value;
+    var password = document.getElementById("passwordTextField").value;
+    var password2 = document.getElementById("passwordTextField2").value;
+    if(password != password2){
+        document.getElementById("errorMessage").innerHTML = "Your passwords must match!";
+        return;
+    }
+    var hashedPasswd = await sha256(password);
+    var data = {
+        username: username,
+        password: hashedPasswd,
+    }
+
+    sendPacket("register", data);
+}
+
+
 function sendPacket(name,data){
     var packet = name + ":" + btoa(JSON.stringify(data));
     ws.send(packet);
