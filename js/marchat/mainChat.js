@@ -54,20 +54,31 @@ function handleMessage(msg){
         channelButtons = [];
         console.log("test channellist lenth: " + pckgContent.channels.length);
         var channelList = document.getElementById("channel-list");
+
+        pckgContent.channels.forEach(function(i){
+            var button = document.createElement("input");
+            button.classList.add("channel-button");
+            button.value = "#" + i;
+            button.type = "button";
+            button.addEventListener("click" ,() =>{
+                tryJoinChannel(i);
+            })
+            channelList.appendChild(button);
+        });
+/*
+
         for(var channel in pckgContent.channels){
             var button = document.createElement("input");
             button.classList.add("channel-button");
             button.value = "#" + pckgContent.channels[channel];
             button.type = "button";
             channelButtons.push(button);
-            channelList.appendChild(button);
-        }
-        for(var i = 0; i < channelButtons.length; i++){
             channelButtons[i].addEventListener("click" ,() =>{
                 tryJoinChannel(i);
             })
+            channelList.appendChild(button);
         }
-    }
+    }*/
 }
 
 function tryJoinChannel(channelName){
