@@ -74,6 +74,8 @@ function handleMessage(msg){
             document.cookie = "password=" + userPassword;
             console.log(document.cookie.toString());
             window.location.href = "chat.html";
+        }else if(pckgContent.packet == "register"){
+            window.location.href = "login.html";
         }
     }
 }

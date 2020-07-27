@@ -3,6 +3,7 @@
 body{
     background-color: #34495e;
     align-self: center;
+    color: #ecf0f1;
 }
 
 h1{
@@ -20,7 +21,7 @@ h1{
 
 input{
     margin: auto;
-    margin-top: 15px;
+    margin-bottom: 17px;
     display: block;
     align-self: center;
     text-align: center;
@@ -31,5 +32,10 @@ input{
     text-align: center;
     margin-top: 15px;
     font-weight: 800;
+}
+
+a{
+    color: #ecf0f1;
+    text-align: center; 
 }
 
