@@ -49,6 +49,12 @@ function handleMessage(msg){
         if(pckgContent.packet == "login"){
             console.log("logged in!");
         }
+    }else if(pckgName == "channel_list"){
+        var channelList = document.getElementById("channel-list");
+        for(var i = 0; i < pckgContent.channels.lenth; i++){
+            var button = document.createElement("input").setAttribute("type" ,"button").setAttribute("value", pckgContent.channelList[i]).setAttribute("class", "channel-button");
+            channelList.appendChild(button);
+        }
     }
 }
 
