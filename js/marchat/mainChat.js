@@ -41,7 +41,7 @@ function handleMessage(msg){
     var pckgName = msg.split(":")[0]
     console.log("pckgName: " + pckgName);
     var pckgContent = JSON.parse(atob(msg.split(":")[1]));
-    console.log("pckgContent: " + pckgContent.toString());
+    console.log("pckgContent: " + msg);
 
     if(pckgName == "error"){
         console.log(pckgContent.message);
@@ -49,10 +49,10 @@ function handleMessage(msg){
         if(pckgContent.packet == "login"){
             console.log("logged in!");
         }
-    }else if(pckgName == "channel_list"){
+    }else if(pckgName == "channel-list"){
         var channelList = document.getElementById("channel-list");
         for(var i = 0; i < pckgContent.channels.lenth; i++){
-            var button = document.createElement("input").setAttribute("type" ,"button").setAttribute("value", pckgContent.channelList[i]).setAttribute("class", "channel-button");
+            var button = document.createElement("input").setAttribute("type" ,"button").setAttribute("value", pckgContent.channels[i]).setAttribute("class", "channel-button");
             channelList.appendChild(button);
         }
     }
