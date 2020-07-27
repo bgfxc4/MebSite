@@ -20,7 +20,13 @@ document.getElementById("message-field-div").hidden = true;
     }
 
     document.addEventListener("keydown", (ev) =>{
+        var textField = document.getElementById("message-field");
+        if(document.activeElement != textField) return;
         if(ev.key == "Enter")sendMessage();
+    });
+
+    document.getElementById("send-button").addEventListener("click", () => {
+        sendMessage();
     });
 })
 
@@ -89,7 +95,7 @@ function tryJoinChannel(channelName){
 function sendMessage(){
     var textField = document.getElementById("message-field");
 
-    if(document.activeElement != textField || textField.value == "") return;
+    if(textField.value == "") return;
 
     var data = {
         text: textField.value,
