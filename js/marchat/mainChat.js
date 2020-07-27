@@ -72,6 +72,7 @@ function handleMessage(msg){
 
 function tryJoinChannel(channelName){
     document.getElementById("message-field-div").hidden = false;
+    document.getElementById("join-channel-message").hidden = true;
     console.log("trying to join: " + channelName);
     var data = {
         name: channelName,
