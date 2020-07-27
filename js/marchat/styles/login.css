@@ -19,6 +19,13 @@ h1{
     align-self: center;
 }
 
+#register{
+    position: fixed; /* or absolute */
+    top: 10%;
+    left: 40%;
+    align-self: center;
+}
+
 input{
     margin: auto;
     margin-bottom: 17px;
