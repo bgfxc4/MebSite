@@ -21,8 +21,8 @@ window.addEventListener("load", () => {
 
 async function Login() {
     console.log(document.cookie.toString());
-    var username = document.cookie.split('; ').find(row => row.startsWith('username')).split('=')[1];;
-    var password = document.cookie.split('; ').find(row => row.startsWith('password')).split('=')[1];;
+    var username = document.cookie.split('; ').find(row => row.startsWith('username')).split('=')[1];
+    var password = document.cookie.split('; ').find(row => row.startsWith('password')).split('=')[1];
     userUsername = username;
     userPassword = password;
     var hashedPasswd = await sha256(password);
