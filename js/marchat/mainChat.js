@@ -57,10 +57,18 @@ function handleMessage(msg){
             button.classList.add("channel-button");
             button.value = "#" + pckgContent.channels[channel];
             button.type = "button";
+            button.addEventListener("click", ()=>{
+                tryJoinChannel(pckgContent.channels[channel]);
+            });
             channelList.appendChild(button);
         }
     }
 }
+
+function tryJoinChannel(channelName){
+    console.log("trying to join: " + channelName);
+}
+
 
 function sendPacket(name,data){
     var packet = name + ":" + btoa(JSON.stringify(data));
