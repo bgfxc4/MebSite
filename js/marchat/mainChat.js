@@ -55,7 +55,7 @@ function handleMessage(msg){
         for(var channel in pckgContent.channels){
             var button = document.createElement("input");
             button.classList.add("channel-button");
-            button.value = "#" + channel;
+            button.value = "#" + pckgContent.channels[channel];
             button.type = "button";
             channelList.appendChild(button);
         }
