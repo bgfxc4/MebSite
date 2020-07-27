@@ -2,25 +2,27 @@ var ws;
 var userUsername;
 var userPassword;
 
-window.onload = async () => {
-
+window.addEventListener("load", () => {
     ws = new WebSocket(`wss://marchat.zapto.org/marchat`)
     ws.onmessage = (ev) => {
         handleMessage(ev.data.toString());
     }
     ws.onopen = async () => {
         console.log("WS_OPEN");
+        Login();
     }
     ws.onclose = () => console.log("WS_CLOSE")
     ws.onerror = (ev) => {
         console.log(`WS_ERROR: ${ev}`);
-        document.getElementById("errorMessage").innerHTML = "Connection to Server failed! Please try later again.";
     }
-}
+})
 
-async function tryLogin() {
-    var username = document.getElementById("usernameTxtField").value;
-    var password = document.getElementById("passwordTextField").value;
+
+
+async function Login() {
+    console.log(document.cookie.toString());
+    var username = document.cookie.split('; ').find(row => row.startsWith('username')).split('=')[1];;
+    var password = document.cookie.split('; ').find(row => row.startsWith('password')).split('=')[1];;
     userUsername = username;
     userPassword = password;
     var hashedPasswd = await sha256(password);
@@ -35,12 +37,6 @@ async function tryLogin() {
     sendPacket("login", data);
 }
 
-function sendPacket(name,data){
-    var packet = name + ":" + btoa(JSON.stringify(data));
-    ws.send(packet);
-    console.log("sending " + packet + " to the server");
-}
-
 function handleMessage(msg){
     var pckgName = msg.split(":")[0]
     console.log("pckgName: " + pckgName);
@@ -48,15 +44,18 @@ function handleMessage(msg){
     console.log("pckgContent: " + pckgContent.toString());
 
     if(pckgName == "error"){
-        document.getElementById("errorMessage").innerHTML = pckgContent.message;
+        console.log(pckgContent.message);
     }else if("ok"){
         if(pckgContent.packet == "login"){
-            document.cookie = "username=" + userUsername;
-            document.cookie = "password=" + userPassword;
-            console.log(document.cookie.toString());
-            window.location.href = "chat.html";
+            console.log("logged in!");
         }
     }
+}
+
+function sendPacket(name,data){
+    var packet = name + ":" + btoa(JSON.stringify(data));
+    ws.send(packet);
+    console.log("sending " + packet + " to the server");
 }
 
 async function sha256(message) {
