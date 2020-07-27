@@ -77,8 +77,8 @@ function handleMessage(msg){
                 tryJoinChannel(i);
             })
             channelList.appendChild(button);
-        }
-    }*/
+        }*/
+    }
 }
 
 function tryJoinChannel(channelName){
