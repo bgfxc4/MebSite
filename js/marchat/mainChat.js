@@ -58,7 +58,7 @@ function handleMessage(msg){
             button.value = "#" + pckgContent.channels[channel];
             button.type = "button";
             button.addEventListener("click", ()=>{
-                tryJoinChannel(pckgContent.channels[channel]);
+                tryJoinChannel(button.value);
             });
             channelList.appendChild(button);
         }
