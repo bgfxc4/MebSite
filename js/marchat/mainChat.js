@@ -4,6 +4,8 @@ var userPassword;
 var channelButtons = [];
 
 window.addEventListener("load", () => {
+document.getElementById("message-field-div").hidden = true;
+
     ws = new WebSocket(`wss://marchat.zapto.org/marchat`)
     ws.onmessage = (ev) => {
         handleMessage(ev.data.toString());
@@ -65,24 +67,18 @@ function handleMessage(msg){
             })
             channelList.appendChild(button);
         });
-/*
-
-        for(var channel in pckgContent.channels){
-            var button = document.createElement("input");
-            button.classList.add("channel-button");
-            button.value = "#" + pckgContent.channels[channel];
-            button.type = "button";
-            channelButtons.push(button);
-            channelButtons[i].addEventListener("click" ,() =>{
-                tryJoinChannel(i);
-            })
-            channelList.appendChild(button);
-        }*/
     }
 }
 
 function tryJoinChannel(channelName){
+    document.getElementById("message-field-div").hidden = false;
     console.log("trying to join: " + channelName);
+    var data = {
+        name: channelName,
+        count: 20,
+        offset: -1,
+    }
+    sendPacket("channel", data);
 }
 
 
