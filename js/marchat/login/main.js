@@ -1,6 +1,9 @@
 var ws;
+var userUsername;
+var userPassword;
 
 window.onload = async () => {
+
     ws = new WebSocket(`wss://marchat.zapto.org/marchat`)
     ws.onmessage = (ev) => {
         handleMessage(ev.data.toString());
@@ -18,6 +21,8 @@ window.onload = async () => {
 async function tryLogin() {
     var username = document.getElementById("usernameTxtField").value;
     var password = document.getElementById("passwordTextField").value;
+    userUsername = username;
+    userPassword = password;
     var hashedPasswd = await sha256(password);
     var data = {
         username: username,
@@ -43,6 +48,12 @@ function handleMessage(msg){
 
     if(pckgName == "error"){
         document.getElementById("errorMessage").innerHTML = pckgContent.message;
+    }else if("ok"){
+        if(pckgContent.packet == "login"){
+            document.cookie = "username=" + userUsername;
+            document.cookie = "password=" + userPassword;
+            window.location.href = "js/marchat/chat/chat.html";
+        }
     }
 }
 
