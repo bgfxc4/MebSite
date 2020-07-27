@@ -1,6 +1,7 @@
 var ws;
 var userUsername;
 var userPassword;
+var channelButtons = [];
 
 window.addEventListener("load", () => {
     ws = new WebSocket(`wss://marchat.zapto.org/marchat`)
@@ -58,7 +59,7 @@ function handleMessage(msg){
             button.value = "#" + pckgContent.channels[channel];
             button.type = "button";
             button.addEventListener("click", ()=>{
-                tryJoinChannel(button.value);
+                tryJoinChannel(pckgContent.channels[channel]);
             });
             channelList.appendChild(button);
         }
