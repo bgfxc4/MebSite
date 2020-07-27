@@ -18,6 +18,10 @@ document.getElementById("message-field-div").hidden = true;
     ws.onerror = (ev) => {
         console.log(`WS_ERROR: ${ev}`);
     }
+
+    document.addEventListener("keydown", (ev) =>{
+        if(ev.key == "Enter")sendMessage();
+    });
 })
 
 
@@ -82,6 +86,17 @@ function tryJoinChannel(channelName){
     sendPacket("channel", data);
 }
 
+function sendMessage(){
+    var textField = document.getElementById("message-field");
+
+    if(document.activeElement != textField || textField.value == "") return;
+
+    var data = {
+        text: textField.value,
+    }
+    sendPacket("message", data)
+    textField.value = "";
+}
 
 function sendPacket(name,data){
     var packet = name + ":" + btoa(JSON.stringify(data));
