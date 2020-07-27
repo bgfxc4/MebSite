@@ -24,11 +24,12 @@ async function tryLogin() {
     userUsername = username;
     userPassword = password;
     var hashedPasswd = await sha256(password);
+    var timestamp = Date.now();
     var data = {
         username: username,
         password: hashedPasswd,
-        anti_replay: await sha256(hashedPasswd + " " + Date.now()),
-        timestamp: Date.now(),
+        anti_replay: await sha256(hashedPasswd + " " + timestamp),
+        timestamp: timestamp,
     }
 
     sendPacket("login", data);
