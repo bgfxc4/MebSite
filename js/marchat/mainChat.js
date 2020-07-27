@@ -51,6 +51,7 @@ function handleMessage(msg){
             console.log("logged in!");
         }
     }else if(pckgName == "channel-list"){
+        channelButtons = [];
         console.log("test channellist lenth: " + pckgContent.channels.length);
         var channelList = document.getElementById("channel-list");
         for(var channel in pckgContent.channels){
@@ -58,10 +59,13 @@ function handleMessage(msg){
             button.classList.add("channel-button");
             button.value = "#" + pckgContent.channels[channel];
             button.type = "button";
-            button.addEventListener("click", ()=>{
-                tryJoinChannel(pckgContent.channels[channel]);
-            });
+            channelButtons.push(button);
             channelList.appendChild(button);
+        }
+        for(var i = 0; i < channelButtons.length; i++){
+            channelButtons[i].addEventListener("click" ,() =>{
+                tryJoinChannel(i);
+            })
         }
     }
 }
