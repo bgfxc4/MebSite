@@ -45,7 +45,7 @@ function handleMessage(msg){
 
     if(pckgName == "error"){
         console.log(pckgContent.message);
-    }else if("ok"){
+    }else if(pckgName == "ok"){
         if(pckgContent.packet == "login"){
             console.log("logged in!");
         }
