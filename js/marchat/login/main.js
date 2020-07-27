@@ -9,7 +9,10 @@ window.onload = async () => {
         console.log("WS_OPEN");
     }
     ws.onclose = () => console.log("WS_CLOSE")
-    ws.onerror = (ev) => console.log(`WS_ERROR: ${ev}`)
+    ws.onerror = (ev) => {
+        console.log(`WS_ERROR: ${ev}`);
+        document.getElementById("errorMessage").innerHTML = "Connection to Server failed! Please try later again.";
+    }
 }
 
 async function tryLogin() {
@@ -39,7 +42,7 @@ function handleMessage(msg){
     console.log("pckgContent: " + pckgContent.toString());
 
     if(pckgName == "error"){
-        alert(pckgContent.message);
+        document.getElementById("errorMessage").innerHTML = pckgContent.message;
     }
 }
 

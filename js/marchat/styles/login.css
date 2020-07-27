@@ -26,3 +26,10 @@ input{
     text-align: center;
 }
 
+#errorMessage{
+    color: #c0392b;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 800;
+}
+
