@@ -52,8 +52,11 @@ function handleMessage(msg){
     }else if(pckgName == "channel-list"){
         console.log("test channellist lenth: " + pckgContent.channels.length);
         var channelList = document.getElementById("channel-list");
-        for(var i = 0; i < pckgContent.channels.length; i++){
-            var button = document.createElement("input").setAttribute("type" ,"button").setAttribute("value", pckgContent.channels[i]).setAttribute("class", "channel-button");
+        for(var channel in pckgContent.channels){
+            var button = document.createElement("input");
+            button.classList.add("channel-button");
+            button.value = "#" + channel;
+            button.type = "button";
             channelList.appendChild(button);
         }
     }
