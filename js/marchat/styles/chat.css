@@ -34,6 +34,15 @@ a{
     width: calc(100% - 380px);
 }
 
+#behind-message-field{
+    position:fixed;
+    bottom:0px;
+    right: 0px;
+    left: 260px;
+    width: calc(100% - 380px);
+    background-color: #2980b9;
+}
+
 #send-button{
     position:fixed;
     bottom:8px;
