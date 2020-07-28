@@ -78,7 +78,7 @@ function handleMessage(msg){
             channelList.appendChild(button);
         });
     }else if(pckgName == "message"){
-        showMessage(pckgContent.username, pckgContent.message);
+        showMessage(pckgContent.username, pckgContent.text);
     }
 }
 
