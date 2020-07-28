@@ -77,7 +77,6 @@ function handleMessage(msg){
             document.getElementById("join-channel-message").hidden = true; 
             document.getElementById("message-field-div").hidden = false;
             document.getElementById("current-channel-text").innerHTML = "Current channel:#" + channelTryingToJoin;
-            document.getElementById("messages-field").innerHTML = "";
             activeChannel = channelTryingToJoin;
             if(activeChannelButton) activeChannelButton.classList.remove("active-button");
             if(lastPressedChannelButton) {
@@ -109,6 +108,7 @@ function handleMessage(msg){
     }else if(pckgName == "message"){
         showMessage(pckgContent.username, pckgContent.text);
     }else if(pckgName == "channel"){
+        document.getElementById("messages-field").innerHTML = "";
         loadMessages(pckgContent);
     }
 }
