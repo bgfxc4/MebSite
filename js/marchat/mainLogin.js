@@ -76,7 +76,7 @@ function handleMessage(msg){
         if(pckgContent.packet == "login"){
             document.cookie = "username=" + userUsername;
             document.cookie = "password=" + userPassword;
-            document.cookie = "sameSite=" + "secure";
+            document.cookie = "secure";
             console.log(document.cookie.toString());
             window.location.href = "chat.html";
         }else if(pckgContent.packet == "register"){
