@@ -75,7 +75,6 @@ a{
     background-color: #2980b9;
     position: relative;
     left: 300px;
-    top: 70px;
     right: 40px;
     padding: 10px;
     border-radius: 5px;
@@ -89,4 +88,5 @@ a{
 #messages-field{
     position: relative;
     bottom: 70px;
+    top :0px;
 }
