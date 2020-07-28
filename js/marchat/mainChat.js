@@ -6,19 +6,6 @@ var channelButtons = [];
 window.addEventListener("load", () => {
 document.getElementById("message-field-div").hidden = true;
 
-    showMessage("testa", "xhvbdhfbzdfubg");
-    showMessage("testa", "xhvbdhfbzdfubg");
-    showMessage("testa", "xhvbdhfbzdfubg");
-    showMessage("testa", "xhvbdhfbzdfubg");
-    showMessage("testa", "xhvbdhfbzdfubg");
-    showMessage("testa", "xhvbdhfbzdfubg");
-    showMessage("testa", "xhvbdhfbzdfubg");
-    showMessage("testa", "xhvbdhfbzdfubg");
-    showMessage("testa", "xhvbdhfbzdfubg");
-    showMessage("testa", "xhvbdhfbzdfubg");
-    showMessage("testa", "xhvbdhfbzdfubg");
-    showMessage("testa", "xhvbdhfbzdfubg");
-
     ws = new WebSocket(`wss://marchat.zapto.org/marchat`)
     ws.onmessage = (ev) => {
         handleMessage(ev.data.toString());
