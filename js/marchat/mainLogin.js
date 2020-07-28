@@ -74,8 +74,8 @@ function handleMessage(msg){
         document.getElementById("errorMessage").innerHTML = pckgContent.message;
     }else if("ok"){
         if(pckgContent.packet == "login"){
-            document.cookie = "username=" + userUsername + "; sameSite=secure";
-            document.cookie = "password=" + userPassword + "; sameSite=secure";
+            document.cookie = "username=" + userUsername + "; sameSite=strict";
+            document.cookie = "password=" + userPassword + "; sameSite=strict";
             console.log(document.cookie.toString());
             window.location.href = "chat.html";
         }else if(pckgContent.packet == "register"){
