@@ -147,7 +147,7 @@ function createChannel(){
 function addUserToActvieChannel(){
     var user = prompt("Please enter the name of the user you want to add!");
     var data = {
-        username: name,
+        username: user,
         channel: activeChannel,
     }
     sendPacket("channel_user_add", data);
