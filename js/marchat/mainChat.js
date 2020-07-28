@@ -30,6 +30,10 @@ document.getElementById("message-field-div").hidden = true;
     document.getElementById("send-button").addEventListener("click", () => {
         sendMessage();
     });
+
+    document.getElementById("new-channel-button").addEventListener("click", () => {
+        createChannel();
+    });
 })
 
 
@@ -117,6 +121,11 @@ function sendMessage(){
     sendPacket("message", data)
     textField.value = "";
 }
+
+function createChannel(){
+    var name = prompt("Please enter the name of the channel!");
+}
+
 
 function sendPacket(name,data){
     var packet = name + ":" + btoa(JSON.stringify(data));
