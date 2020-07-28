@@ -6,6 +6,36 @@ var channelButtons = [];
 window.addEventListener("load", () => {
 document.getElementById("message-field-div").hidden = true;
 
+document.getElementById("message-field-div").hidden = false;
+document.getElementById("join-channel-message").hidden = true;
+    showMessage("tesa", "first");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+    showMessage("tesa", "xljgiodufjgdfgmj");
+
+
     ws = new WebSocket(`wss://marchat.zapto.org/marchat`)
     ws.onmessage = (ev) => {
         handleMessage(ev.data.toString());
