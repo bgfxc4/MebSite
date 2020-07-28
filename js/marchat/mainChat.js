@@ -7,6 +7,8 @@ var activeChannelButton;
 var channelTryingToJoin = "";
 var lastCreatedChannelName = "";
 var activeChannel;
+var currentlyLoadedMessages = 0;
+var lastRequestIsNewChannel = false;
 window.addEventListener("load", () => {
 document.getElementById("message-field-div").hidden = true;
 
@@ -108,12 +110,17 @@ function handleMessage(msg){
     }else if(pckgName == "message"){
         showMessage(pckgContent.username, pckgContent.text);
     }else if(pckgName == "channel"){
-        document.getElementById("messages-field").innerHTML = "";
-        loadMessages(pckgContent);
+        if(lastRequestIsNewChannel){
+            document.getElementById("messages-field").innerHTML = "";
+            loadFirstMessages(pckgContent);
+        }else{
+            loadNewMessages(pckgContent);
+        }
     }
 }
 
 function tryJoinChannel(channelName){
+    lastRequestIsNewChannel = true;
     channelTryingToJoin = channelName;
     console.log("trying to join: " + channelName);
     var data = {
@@ -164,7 +171,6 @@ function sendPacket(name,data){
 }
 
 function showMessage(username, message){
-    console.log("message is da " + username + message);
     var messageField = document.getElementById("messages-field");
     var msg = document.createElement("div");
     msg.classList.add("message");
@@ -176,13 +182,50 @@ function showMessage(username, message){
     }
     messageField.appendChild(msg);
     window.scrollTo(0,document.body.scrollHeight);
+    currentlyLoadedMessages ++;
 }
 
-function loadMessages(channelPacket){
+function showMessageAfterLast(username, message){
+    var msg = document.createElement("div");
+    msg.classList.add("message");
+    if(username == userUsername){
+        msg.id = "own-message";
+        msg.innerHTML = "<b>You:</b> <br/>" + message;
+    }else {
+        msg.innerHTML = "<b>" + username + "</b>: <br/>" + message;
+    }
+    insertAfter(msg, document.getElementById("load-messages-button"));
+    window.scrollTo(0,document.body.scrollHeight);
+    currentlyLoadedMessages ++;
+}
+
+function loadFirstMessages(channelPacket){
     var history = channelPacket.history;
     for(var i = 0; i < history.length; i++){
         showMessage(history[i].username, history[i].text);
     }
+    var button = document.createElement("input");
+    button.id = "load-messages-button";
+    button.addEventListener("click", () => requestNewMessages());
+    button.innerHTML = "Load new messages";
+    document.getElementById("messages-field").appendChild(button);
+}
+
+function loadNewMessages(channelPacket){
+    var history = channelPacket.history;
+    for(var i = 0; i < history.length; i++){
+        showMessageAfterLast(history[i].username, history[i].text);
+    }
+}
+
+function requestNewMessages(){
+    lastRequestIsNewChannel = false;
+    var data = {
+        name: activeChannel,
+        count: 30,
+        offset: currentlyLoadedMessages - 1,
+    }
+    sendPacket("channel", data);
 }
 
 
@@ -199,4 +242,8 @@ async function sha256(message) {
     // convert bytes to hex string                  
     const hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
     return hashHex;
+}
+
+function insertAfter(newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
