@@ -94,3 +94,10 @@ a{
 #messages-field :first-child{
     margin-top: 70px;
 }
+
+#current-channel-text{
+    color:#ecf0f1;
+    position: relative;
+    top: 0px;
+    left: 265px;
+}

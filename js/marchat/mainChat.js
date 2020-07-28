@@ -61,11 +61,17 @@ function handleMessage(msg){
     }else if(pckgName == "ok"){
         if(pckgContent.packet == "login"){
             console.log("logged in!");
+        }else if(pckgContent.packet == "channel"){
+            document.getElementById("current-channel-text").innerHTML = "Current channel:#" +channelName; 
+            document.getElementById("message-field-div").hidden = false;
+            document.getElementById("join-channel-message").hidden = true;
         }
+        
     }else if(pckgName == "channel-list"){
         channelButtons = [];
         console.log("test channellist lenth: " + pckgContent.channels.length);
         var channelList = document.getElementById("channel-list");
+        channelList.innerHTML = "";
 
         pckgContent.channels.forEach(function(i){
             var button = document.createElement("input");
@@ -83,8 +89,6 @@ function handleMessage(msg){
 }
 
 function tryJoinChannel(channelName){
-    document.getElementById("message-field-div").hidden = false;
-    document.getElementById("join-channel-message").hidden = true;
     console.log("trying to join: " + channelName);
     var data = {
         name: channelName,
