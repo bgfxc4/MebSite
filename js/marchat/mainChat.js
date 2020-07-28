@@ -67,7 +67,7 @@ function handleMessage(msg){
             document.getElementById("join-channel-message").hidden = true; 
             document.getElementById("message-field-div").hidden = false;
             document.getElementById("current-channel-text").innerHTML = "Current channel:#" + channelTryingToJoin;
-            activeChannelButton.classList.remove("active-button");
+            if(activeChannelButton) activeChannelButton.classList.remove("active-button");
             activeChannelButton = lastPressedChannelButton;
             activeChannelButton.classList.add("active-button");
         }
