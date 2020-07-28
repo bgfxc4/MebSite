@@ -6,6 +6,7 @@ var lastPressedChannelButton;
 var activeChannelButton;
 var channelTryingToJoin = "";
 var lastCreatedChannelName = "";
+var activeChannel;
 window.addEventListener("load", () => {
 document.getElementById("message-field-div").hidden = true;
 
@@ -33,6 +34,10 @@ document.getElementById("message-field-div").hidden = true;
     });
 
     document.getElementById("new-channel-button").addEventListener("click", () => {
+        createChannel();
+    });
+
+    document.getElementById("add-user-button").addEventListener("click", () => {
         createChannel();
     });
 })
@@ -72,6 +77,7 @@ function handleMessage(msg){
             document.getElementById("join-channel-message").hidden = true; 
             document.getElementById("message-field-div").hidden = false;
             document.getElementById("current-channel-text").innerHTML = "Current channel:#" + channelTryingToJoin;
+            activeChannel = channelTryingToJoin;
             if(activeChannelButton) activeChannelButton.classList.remove("active-button");
             if(lastPressedChannelButton) {
                 activeChannelButton = lastPressedChannelButton;
@@ -136,6 +142,15 @@ function createChannel(){
     }
     sendPacket("channel_create", data);
     lastCreatedChannelName = name;
+}
+
+function addUserToActvieChannel(){
+    var user = prompt("Please enter the name of the user you want to add!");
+    var data = {
+        username: name,
+        channel: activeChannel,
+    }
+    sendPacket("channel_user_add", data);
 }
 
 
