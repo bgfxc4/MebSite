@@ -6,6 +6,9 @@ var channelTryingToJoin = "";
 window.addEventListener("load", () => {
 document.getElementById("message-field-div").hidden = true;
 
+    showMessage("testa" ,"vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv")
+    showMessage("testa" ,"dhjngiusdfhbfhsdbvhdfhbizhdsrbvhjdfbvhjebfuzsehvuidnghbrhbdghwgehbdfhwhbdjsnvjdfghbnguierfheiujdbnjnkxcnbdjrfhgbw3hirfgbwezuifbsjhcbd");
+
 
     ws = new WebSocket(`wss://marchat.zapto.org/marchat`)
     ws.onmessage = (ev) => {
