@@ -16,6 +16,10 @@ window.onload = async () => {
         console.log(`WS_ERROR: ${ev}`);
         document.getElementById("errorMessage").innerHTML = "Connection to Server failed! Please try later again.";
     }
+
+    document.addEventListener("keydown", (ev) =>{
+        if(ev.key == "Enter")tryLogin();
+    });
 }
 
 async function tryLogin() {
