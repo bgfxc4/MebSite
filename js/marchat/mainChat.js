@@ -85,7 +85,7 @@ function handleMessage(msg){
             button.type = "button";
             channelButtons.push(button);
             button.addEventListener("click" ,() =>{
-                lastPressedChannelButton = channelButtons[pckgContent.channels.findIndex(i)];
+                lastPressedChannelButton = channelButtons[pckgContent.channels.findIndex((txt) => {return txt == i})];
                 tryJoinChannel(i);
             })
             channelList.appendChild(button);
