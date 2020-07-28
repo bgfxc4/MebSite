@@ -208,7 +208,8 @@ function loadFirstMessages(channelPacket){
     button.id = "load-messages-button";
     button.addEventListener("click", () => requestNewMessages());
     button.innerHTML = "Load new messages";
-    button.insertBefore(document.getElementById("messages-field").firstChild);
+    var field = document.getElementById("messages-field");
+    field.insertBefore(button, field.firstChild);
 }
 
 function loadNewMessages(channelPacket){
