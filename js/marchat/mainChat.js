@@ -114,7 +114,7 @@ function sendPacket(name,data){
 
 function showMessage(username, message){
     console.log("message is da " + username + message);
-    var messageField = document.getElementById("message-field");
+    var messageField = document.getElementById("messages-field");
     var msg = document.createElement("div");
     msg.classList.add("message");
     if(username == userUsername){
