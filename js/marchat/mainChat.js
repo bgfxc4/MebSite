@@ -78,7 +78,6 @@ function handleMessage(msg){
             channelList.appendChild(button);
         });
     }else if(pckgName == "message"){
-        console.log("message is da");
         showMessage(pckgContent.username, pckgContent.message);
     }
 }
@@ -114,6 +113,7 @@ function sendPacket(name,data){
 }
 
 function showMessage(username, message){
+    console.log("message is da");
     var messageField = document.getElementById("message-field");
     var msg = document.createElement("div");
     msg.classList.add("message");
