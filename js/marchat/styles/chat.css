@@ -75,6 +75,7 @@ a{
     background-color: #2980b9;
     position: relative;
     left: 300px;
+    top: 1px;
     right: 40px;
     padding: 10px;
     border-radius: 5px;
