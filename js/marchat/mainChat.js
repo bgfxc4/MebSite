@@ -6,6 +6,7 @@ var channelTryingToJoin = "";
 window.addEventListener("load", () => {
 document.getElementById("message-field-div").hidden = true;
 
+
     ws = new WebSocket(`wss://marchat.zapto.org/marchat`)
     ws.onmessage = (ev) => {
         handleMessage(ev.data.toString());
@@ -62,9 +63,9 @@ function handleMessage(msg){
         if(pckgContent.packet == "login"){
             console.log("logged in!");
         }else if(pckgContent.packet == "channel"){
-            document.getElementById("current-channel-text").hidden = false; 
+            document.getElementById("join-channel-message").hidden = true; 
             document.getElementById("message-field-div").hidden = false;
-            document.getElementById("join-channel-message").innerHTML = "Current channel:#" + channelTryingToJoin;
+            document.getElementById("current-channel-text").innerHTML = "Current channel:#" + channelTryingToJoin;
         }
 
     }else if(pckgName == "channel-list"){
