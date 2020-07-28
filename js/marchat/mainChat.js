@@ -77,6 +77,8 @@ function handleMessage(msg){
             })
             channelList.appendChild(button);
         });
+    }else if(pckgName == "message"){
+        showMessage(pckgContent.username, pckgContent.message);
     }
 }
 
@@ -109,6 +111,20 @@ function sendPacket(name,data){
     ws.send(packet);
     console.log("sending " + packet + " to the server");
 }
+
+function showMessage(username, message){
+    var messageField = document.getElementById("message-field");
+    var msg = document.createElement("div");
+    msg.classList.add("message");
+    if(username == userUsername){
+        msg.id = "own-message";
+        msg.innerHTML = "You: <br/>" + message;
+    }else {
+        msg.innerHTML = userUsername + ": <br/>" + message;
+    }
+    messageField.appendChild(msg);
+}
+
 
 async function sha256(message) {
     // encode as UTF-8

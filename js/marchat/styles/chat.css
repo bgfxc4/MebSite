@@ -65,3 +65,22 @@ a{
     margin-top: 30%;
     font-size: larger;
 }
+
+.message{
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    margin-bottom: 15px;
+    background-color: #2980b9;
+    position: relative;
+    left: 300px;
+    right: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    width: calc(100% - 340px);
+}
+
+#own-message{
+    background-color: #3ba9f1;
+}
