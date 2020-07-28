@@ -5,6 +5,7 @@ var channelButtons = [];
 var lastPressedChannelButton;
 var activeChannelButton;
 var channelTryingToJoin = "";
+var lastCreatedChannelName = "";
 window.addEventListener("load", () => {
 document.getElementById("message-field-div").hidden = true;
 
@@ -74,6 +75,8 @@ function handleMessage(msg){
             if(activeChannelButton) activeChannelButton.classList.remove("active-button");
             activeChannelButton = lastPressedChannelButton;
             activeChannelButton.classList.add("active-button");
+        }else if(pckgContent.packet == "channel_create"){
+            tryJoinChannel(lastCreatedChannelName);
         }
 
     }else if(pckgName == "channel-list"){
@@ -128,6 +131,7 @@ function createChannel(){
         name: name,
     }
     sendPacket("channel_create", data);
+    lastCreatedChannelName = name;
 }
 
 
