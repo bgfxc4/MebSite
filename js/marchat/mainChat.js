@@ -124,6 +124,7 @@ function showMessage(username, message){
         msg.innerHTML = "<b>" + userUsername + "</b>: <br/>" + message;
     }
     messageField.appendChild(msg);
+    msg.scrollIntoView(false);
 }
 
 
