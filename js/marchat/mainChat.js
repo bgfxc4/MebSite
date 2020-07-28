@@ -124,6 +124,10 @@ function sendMessage(){
 
 function createChannel(){
     var name = prompt("Please enter the name of the channel!");
+    var data = {
+        name: name,
+    }
+    sendPacket("channel_create", data);
 }
 
 
