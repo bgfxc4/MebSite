@@ -118,7 +118,7 @@ function tryJoinChannel(channelName){
 function sendMessage(){
     var textField = document.getElementById("message-field");
 
-    var value = new TextEncoder('utf-8').encode(textField.value);
+    var value = textField.value;
 
     if(value == "") return;
 
