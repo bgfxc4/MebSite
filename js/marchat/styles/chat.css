@@ -53,6 +53,10 @@ a{
     overflow-y: auto;
 }
 
+#channel-list :last-child{
+    margin-bottom: 70px;
+}
+
 .channel-button{
     position: relative;;
     left: 20px;
@@ -102,4 +106,21 @@ a{
     position: relative;
     top: 0px;
     left: 265px;
+}
+
+#add-user-button{
+    position: fixed;
+    bottom: 10px;
+    width: 120px;
+    left: 10px;
+}
+#new-channel-button{
+    position: fixed;
+    bottom: 10px;
+    left: 135px;
+    width: 120px;
+}
+
+.active-button{
+    color: #2980b9;
 }

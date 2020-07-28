@@ -2,13 +2,11 @@ var ws;
 var userUsername;
 var userPassword;
 var channelButtons = [];
+var lastPressedChannelButton;
+var activeChannelButton;
 var channelTryingToJoin = "";
 window.addEventListener("load", () => {
 document.getElementById("message-field-div").hidden = true;
-
-    showMessage("testa" ,"vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv")
-    showMessage("testa" ,"dhjngiusdfhbfhsdbvhdfhbizhdsrbvhjdfbvhjebfuzsehvuidnghbrhbdghwgehbdfhwhbdjsnvjdfghbnguierfheiujdbnjnkxcnbdjrfhgbw3hirfgbwezuifbsjhcbd");
-
 
     ws = new WebSocket(`wss://marchat.zapto.org/marchat`)
     ws.onmessage = (ev) => {
@@ -69,6 +67,9 @@ function handleMessage(msg){
             document.getElementById("join-channel-message").hidden = true; 
             document.getElementById("message-field-div").hidden = false;
             document.getElementById("current-channel-text").innerHTML = "Current channel:#" + channelTryingToJoin;
+            activeChannelButton.classList.remove("active-button");
+            activeChannelButton = lastPressedChannelButton;
+            activeChannelButton.classList.add("active-button");
         }
 
     }else if(pckgName == "channel-list"){
@@ -82,7 +83,9 @@ function handleMessage(msg){
             button.classList.add("channel-button");
             button.value = "#" + i;
             button.type = "button";
+            channelButtons.push(button);
             button.addEventListener("click" ,() =>{
+                lastPressedChannelButton = channelButtons[pckgContent.channels.findIndex(i)];
                 tryJoinChannel(i);
             })
             channelList.appendChild(button);
