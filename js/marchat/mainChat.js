@@ -84,7 +84,6 @@ function handleMessage(msg){
                 activeChannelButton = lastPressedChannelButton;
                 activeChannelButton.classList.add("active-button");
             }
-            loadMessages(pckgContent);
         }else if(pckgContent.packet == "channel_create"){
             tryJoinChannel(lastCreatedChannelName);
         }
@@ -109,6 +108,8 @@ function handleMessage(msg){
         });
     }else if(pckgName == "message"){
         showMessage(pckgContent.username, pckgContent.text);
+    }else if(pckgName == "channel"){
+        loadMessages(pckgContent);
     }
 }
 
