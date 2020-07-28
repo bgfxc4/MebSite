@@ -113,15 +113,17 @@ function tryJoinChannel(channelName){
         offset: -1,
     }
     sendPacket("channel", data);
-}
+} 
 
 function sendMessage(){
-    var textField = new TextEncoder('utf-8').encode(document.getElementById("message-field"));
+    var textField = document.getElementById("message-field");
 
-    if(textField.value == "") return;
+    var value = new TextEncoder('utf-8').encode(textField.value);
+
+    if(value == "") return;
 
     var data = {
-        text: textField.value,
+        text: value,
     }
     sendPacket("message", data)
     textField.value = "";
