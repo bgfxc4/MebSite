@@ -38,7 +38,7 @@ document.getElementById("message-field-div").hidden = true;
     });
 
     document.getElementById("add-user-button").addEventListener("click", () => {
-        createChannel();
+        addUserToActvieChannel();
     });
 })
 
