@@ -85,6 +85,7 @@ a{
     background-color: #3ba9f1;
 }
 
-#messages-field *:last-child{
-    margin-bottom: 70px;
+#messages-field{
+    position: relative;
+    bottom: 70px;
 }

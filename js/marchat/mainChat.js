@@ -6,6 +6,19 @@ var channelButtons = [];
 window.addEventListener("load", () => {
 document.getElementById("message-field-div").hidden = true;
 
+    showMessage("testa", "xhvbdhfbzdfubg");
+    showMessage("testa", "xhvbdhfbzdfubg");
+    showMessage("testa", "xhvbdhfbzdfubg");
+    showMessage("testa", "xhvbdhfbzdfubg");
+    showMessage("testa", "xhvbdhfbzdfubg");
+    showMessage("testa", "xhvbdhfbzdfubg");
+    showMessage("testa", "xhvbdhfbzdfubg");
+    showMessage("testa", "xhvbdhfbzdfubg");
+    showMessage("testa", "xhvbdhfbzdfubg");
+    showMessage("testa", "xhvbdhfbzdfubg");
+    showMessage("testa", "xhvbdhfbzdfubg");
+    showMessage("testa", "xhvbdhfbzdfubg");
+
     ws = new WebSocket(`wss://marchat.zapto.org/marchat`)
     ws.onmessage = (ev) => {
         handleMessage(ev.data.toString());
@@ -121,10 +134,10 @@ function showMessage(username, message){
         msg.id = "own-message";
         msg.innerHTML = "<b>You:</b> <br/>" + message;
     }else {
-        msg.innerHTML = "<b>" + userUsername + "</b>: <br/>" + message;
+        msg.innerHTML = "<b>" + username + "</b>: <br/>" + message;
     }
     messageField.appendChild(msg);
-    msg.scrollIntoView(false);
+    window.scrollTo(0,document.body.scrollHeight);
 }
 
 
