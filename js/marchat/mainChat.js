@@ -73,8 +73,10 @@ function handleMessage(msg){
             document.getElementById("message-field-div").hidden = false;
             document.getElementById("current-channel-text").innerHTML = "Current channel:#" + channelTryingToJoin;
             if(activeChannelButton) activeChannelButton.classList.remove("active-button");
-            activeChannelButton = lastPressedChannelButton;
-            activeChannelButton.classList.add("active-button");
+            if(lastPressedChannelButton) {
+                activeChannelButton = lastPressedChannelButton;
+                activeChannelButton.classList.add("active-button");
+            }
         }else if(pckgContent.packet == "channel_create"){
             tryJoinChannel(lastCreatedChannelName);
         }
@@ -114,7 +116,7 @@ function tryJoinChannel(channelName){
 }
 
 function sendMessage(){
-    var textField = document.getElementById("message-field");
+    var textField = new TextEncoder('utf-8').encode(document.getElementById("message-field"));
 
     if(textField.value == "") return;
 
