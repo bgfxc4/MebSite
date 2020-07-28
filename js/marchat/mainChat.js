@@ -84,6 +84,7 @@ function handleMessage(msg){
                 activeChannelButton = lastPressedChannelButton;
                 activeChannelButton.classList.add("active-button");
             }
+            loadMessages(pckgContent);
         }else if(pckgContent.packet == "channel_create"){
             tryJoinChannel(lastCreatedChannelName);
         }
@@ -174,6 +175,13 @@ function showMessage(username, message){
     }
     messageField.appendChild(msg);
     window.scrollTo(0,document.body.scrollHeight);
+}
+
+function loadMessages(channelPacket){
+    var history = channelPacket.history;
+    for(var i = 0; i < history.length; i++){
+        showMessage(history[i].username, history[i].text);
+    }
 }
 
 
