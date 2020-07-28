@@ -119,9 +119,9 @@ function showMessage(username, message){
     msg.classList.add("message");
     if(username == userUsername){
         msg.id = "own-message";
-        msg.innerHTML = "You: <br/>" + message;
+        msg.innerHTML = "<b>You:</b> <br/>" + message;
     }else {
-        msg.innerHTML = userUsername + ": <br/>" + message;
+        msg.innerHTML = "<b>" + userUsername + "</b>: <br/>" + message;
     }
     messageField.appendChild(msg);
 }
