@@ -136,7 +136,7 @@ function tryJoinChannel(channelName){
 function sendMessage(){
     var textField = document.getElementById("message-field");
 
-    var value = textField.value;
+    var value = (textField.value);
 
     if(value == "") return;
 
@@ -168,8 +168,8 @@ function addUserToActvieChannel(){
 
 function sendPacket(name,data){
     var packet = name + ":" + btoa(JSON.stringify(data));
-    ws.send(decode_utf8(packet));
-    console.log("sending " + decode_utf8(packet) + " to the server");
+    ws.send(encode_utf8(packet));
+    console.log("sending " + encode_utf8(packet) + " to the server");
 }
 
 function showMessage(username, message){
