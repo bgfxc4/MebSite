@@ -208,7 +208,7 @@ function loadFirstMessages(channelPacket){
     for(var i = 0; i < history.length; i++){
         showMessage(history[i].username, history[i].text);
     }
-    numberOfEarliestMessage = history[history.length - 1].number;
+    numberOfEarliestMessage = history[0].number;
     var button = document.createElement("input");
     button.id = "load-messages-button";
     button.addEventListener("click", () => requestNewMessages());
@@ -222,7 +222,7 @@ function loadNewMessages(channelPacket){
     for(var i = 0; i < history.length; i++){
         showMessageAfterLast(history[i].username, history[i].text);
     }
-    numberOfEarliestMessage = history[history.length - 1].number;
+    numberOfEarliestMessage = history[0].number;
     document.getElementById("messages-field").removeChild(document.getElementById("load-messages-button"));
     var button = document.createElement("input");
     button.id = "load-messages-button";
