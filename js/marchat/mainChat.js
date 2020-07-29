@@ -194,7 +194,8 @@ function showMessageAfterLast(username, message){
     }else {
         msg.innerHTML = "<b>" + username + "</b>: <br/>" + message;
     }
-    insertAfter(msg, document.getElementById("load-messages-button"));
+    var field = document.getElementById("messages-field");
+    field.insertBefore(msg, document.getElementById("load-messages-button"));
     currentlyLoadedMessages ++;
 }
 
