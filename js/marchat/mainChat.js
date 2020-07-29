@@ -176,6 +176,8 @@ function showMessage(username, message){
     var messageField = document.getElementById("messages-field");
     var msg = document.createElement("div");
     msg.classList.add("message");
+    
+    console.log(message);
     if(username == userUsername){
         msg.id = "own-message";
         msg.innerHTML = "<b>You:</b> <br/>" + message;
