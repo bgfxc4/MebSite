@@ -166,7 +166,7 @@ function addUserToActvieChannel(){
 
 
 function sendPacket(name,data){
-    var packet = name + ":" + btoa(decode_utf8(JSON.stringify(data)));
+    var packet = name + ":" + btoa(encode_utf8(JSON.stringify(data)));
     ws.send(packet);
     console.log("sending " + packet + " to the server");
 }
