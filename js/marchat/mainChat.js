@@ -66,7 +66,7 @@ async function Login() {
 }
 
 function handleMessage(msg){
-    msg = decode_utf8(msg);
+    msg = encode_utf8(msg);
     var pckgName = msg.split(":")[0]
     console.log("pckgName: " + pckgName);
     var pckgContent = JSON.parse(atob(msg.split(":")[1]));
@@ -168,8 +168,8 @@ function addUserToActvieChannel(){
 
 function sendPacket(name,data){
     var packet = name + ":" + btoa(JSON.stringify(data));
-    ws.send(encode_utf8(packet));
-    console.log("sending " + encode_utf8(packet) + " to the server");
+    ws.send(decode_utf8(packet));
+    console.log("sending " + decode_utf8(packet) + " to the server");
 }
 
 function showMessage(username, message){
