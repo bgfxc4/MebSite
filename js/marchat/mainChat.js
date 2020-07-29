@@ -66,7 +66,6 @@ async function Login() {
 }
 
 function handleMessage(msg){
-    msg = encode_utf8(msg);
     var pckgName = msg.split(":")[0]
     console.log("pckgName: " + pckgName);
     var pckgContent = JSON.parse(atob(msg.split(":")[1]));
