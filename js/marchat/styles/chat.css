@@ -102,7 +102,7 @@ a{
     width: 30%;
     background-color: white;
     position: relative;
-    right: calc((100%-30%) / 2);
+    right: 40%;
     border-radius: 5px;
     text-align: center;
 }

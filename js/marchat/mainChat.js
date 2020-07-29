@@ -183,6 +183,7 @@ function showMessage(username, message){
     messageField.appendChild(msg);
     window.scrollTo(0,document.body.scrollHeight);
     currentlyLoadedMessages ++;
+    console.log(currentlyLoadedMessages)
 }
 
 function showMessageAfterLast(username, message){
@@ -197,6 +198,7 @@ function showMessageAfterLast(username, message){
     var field = document.getElementById("messages-field");
     field.insertBefore(msg, document.getElementById("load-messages-button"));
     currentlyLoadedMessages ++;
+    console.log(currentlyLoadedMessages)
 }
 
 function loadFirstMessages(channelPacket){
