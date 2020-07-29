@@ -233,8 +233,8 @@ function requestNewMessages(){
     lastRequestIsNewChannel = false;
     var data = {
         name: activeChannel,
-        count: 29,
-        offset: currentlyLoadedMessages + 30,
+        count: 5,
+        offset: currentlyLoadedMessages + 4,
     }
     sendPacket("channel", data);
 }
