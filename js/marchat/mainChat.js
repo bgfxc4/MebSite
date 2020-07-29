@@ -232,7 +232,7 @@ function requestNewMessages(){
     var data = {
         name: activeChannel,
         count: 30,
-        offset: currentlyLoadedMessages - 1,
+        offset: currentlyLoadedMessages - 1 - 30,
     }
     sendPacket("channel", data);
 }
