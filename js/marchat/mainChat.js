@@ -208,7 +208,7 @@ function loadFirstMessages(channelPacket){
     var button = document.createElement("input");
     button.id = "load-messages-button";
     button.addEventListener("click", () => requestNewMessages());
-    button.innerHTML = "Load new messages";
+    button.value = "Load new messages";
     var field = document.getElementById("messages-field");
     field.insertBefore(button, field.firstChild);
 }
@@ -222,7 +222,7 @@ function loadNewMessages(channelPacket){
     var button = document.createElement("input");
     button.id = "load-messages-button";
     button.addEventListener("click", () => requestNewMessages());
-    button.innerHTML = "Load new messages";
+    button.value = "Load new messages";
     var field = document.getElementById("messages-field");
     field.insertBefore(button, field.firstChild);
 }
