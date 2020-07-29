@@ -243,6 +243,7 @@ function requestNewMessages(){
 }
 
 function unicodeToChar(text) {
+    console.log(text);
     return text.replace(/\\u[\dA-Fa-f]{4}/g, 
         function (match) {
             return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16));
