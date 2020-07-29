@@ -102,8 +102,9 @@ a{
     width: 30%;
     background-color: white;
     position: relative;
-    left: 40%;
+    right: calc((100%-30%) / 2);
     border-radius: 5px;
+    text-align: center;
 }
 
 #current-channel-text{
