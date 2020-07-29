@@ -9,6 +9,7 @@ var lastCreatedChannelName = "";
 var activeChannel;
 var currentlyLoadedMessages = 0;
 var lastRequestIsNewChannel = false;
+var numberOfEarliestMessage = 0;
 window.addEventListener("load", () => {
 document.getElementById("message-field-div").hidden = true;
 
@@ -207,6 +208,7 @@ function loadFirstMessages(channelPacket){
     for(var i = 0; i < history.length; i++){
         showMessage(history[i].username, history[i].text);
     }
+    numberOfEarliestMessage = history[history.length - 1].number;
     var button = document.createElement("input");
     button.id = "load-messages-button";
     button.addEventListener("click", () => requestNewMessages());
@@ -220,6 +222,7 @@ function loadNewMessages(channelPacket){
     for(var i = 0; i < history.length; i++){
         showMessageAfterLast(history[i].username, history[i].text);
     }
+    numberOfEarliestMessage = history[history.length - 1].number;
     document.getElementById("messages-field").removeChild(document.getElementById("load-messages-button"));
     var button = document.createElement("input");
     button.id = "load-messages-button";
@@ -234,7 +237,7 @@ function requestNewMessages(){
     var data = {
         name: activeChannel,
         count: 5,
-        offset: currentlyLoadedMessages + 4,
+        offset: numberOfEarliestMessage,
     }
     sendPacket("channel", data);
 }
