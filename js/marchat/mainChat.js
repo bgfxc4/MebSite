@@ -66,10 +66,9 @@ async function Login() {
 }
 
 function handleMessage(msg){
-    msg = decode_utf8(msg);
     var pckgName = msg.split(":")[0]
     console.log("pckgName: " + pckgName);
-    var pckgContent = JSON.parse(atob(msg.split(":")[1]));
+    var pckgContent = JSON.parse(decode_utf8(atob(msg.split(":")[1])));
     console.log("pckgContent: " + msg);
 
     if(pckgName == "error"){
@@ -176,8 +175,6 @@ function showMessage(username, message){
     var messageField = document.getElementById("messages-field");
     var msg = document.createElement("div");
     msg.classList.add("message");
-    
-    console.log(message);
     if(username == userUsername){
         msg.id = "own-message";
         msg.innerHTML = "<b>You:</b> <br/>" + message;
