@@ -166,7 +166,7 @@ function addUserToActvieChannel(){
 
 
 function sendPacket(name,data){
-    var packet = name + ":" + btoa(unicodeToChar(JSON.stringify(data)));
+    var packet = name + ":" + btoa(encode_utf8(JSON.stringify(data)));
     ws.send(packet);
     console.log("sending " + packet + " to the server");
 }
@@ -242,13 +242,13 @@ function requestNewMessages(){
     sendPacket("channel", data);
 }
 
-function unicodeToChar(text) {
-    console.log(text);
-    return text.replace(/\\u[\dA-Fa-f]{4}/g, 
-        function (match) {
-            return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16));
-        });
-}
+function encode_utf8(s) {
+    return unescape(encodeURIComponent(s));
+  }
+  
+  function decode_utf8(s) {
+    return decodeURIComponent(escape(s));
+  }
 
 async function sha256(message) {
     // encode as UTF-8
