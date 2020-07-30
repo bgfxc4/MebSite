@@ -219,12 +219,12 @@ function loadFirstMessages(channelPacket){
     }
     if(history[0]){
         numberOfEarliestMessage = history[0].number;
-        var button = document.createElement("input");
+        /*var button = document.createElement("input");
         button.id = "load-messages-button";
         button.addEventListener("click", () => requestNewMessages());
         button.value = "Load new messages";
         var field = document.getElementById("messages-field");
-        field.insertBefore(button, field.firstChild);
+        field.insertBefore(button, field.firstChild);*/
     }
 }
 
