@@ -186,8 +186,7 @@ function showMessage(username, message ,history){
     currentlyLoadedMessages ++;
     console.log(currentlyLoadedMessages)
 
-    if(history[0]){ // create new load messages button if history is pased as an argument
-        numberOfEarliestMessage = history[0].number;
+    if(currentlyLoadedMessages == 1){ // create new load messages button if the message is the first of the chennel
         var button = document.createElement("input");
         button.id = "load-messages-button";
         button.addEventListener("click", () => requestNewMessages());
@@ -216,11 +215,6 @@ function loadFirstMessages(channelPacket){
     currentlyLoadedMessages = 0;
     var history = channelPacket.history;
     for(var i = 0; i < history.length; i++){
-        if(currentlyLoadedMessages == 0){
-            showMessage(history[i].username, history[i].text, history);
-        }else{
-            showMessage(history[i].username, history[i].text);   
-        }
         showMessage(history[i].username, history[i].text);
     }
     if(history[0]){
