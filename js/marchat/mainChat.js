@@ -171,7 +171,7 @@ function sendPacket(name,data){
     console.log("sending " + packet + " to the server");
 }
 
-function showMessage(username, message){
+function showMessage(username, message ,history){
     var messageField = document.getElementById("messages-field");
     var msg = document.createElement("div");
     msg.classList.add("message");
@@ -185,6 +185,16 @@ function showMessage(username, message){
     window.scrollTo(0,document.body.scrollHeight);
     currentlyLoadedMessages ++;
     console.log(currentlyLoadedMessages)
+
+    if(history[0]){ // create new load messages button if history is pased as an argument
+        numberOfEarliestMessage = history[0].number;
+        var button = document.createElement("input");
+        button.id = "load-messages-button";
+        button.addEventListener("click", () => requestNewMessages());
+        button.value = "Load new messages";
+        var field = document.getElementById("messages-field");
+        field.insertBefore(button, field.firstChild);
+    }
 }
 
 function showMessageAfterLast(username, message){
@@ -206,15 +216,22 @@ function loadFirstMessages(channelPacket){
     currentlyLoadedMessages = 0;
     var history = channelPacket.history;
     for(var i = 0; i < history.length; i++){
+        if(currentlyLoadedMessages == 0){
+            showMessage(history[i].username, history[i].text, history);
+        }else{
+            showMessage(history[i].username, history[i].text);   
+        }
         showMessage(history[i].username, history[i].text);
     }
-    numberOfEarliestMessage = history[0].number;
-    var button = document.createElement("input");
-    button.id = "load-messages-button";
-    button.addEventListener("click", () => requestNewMessages());
-    button.value = "Load new messages";
-    var field = document.getElementById("messages-field");
-    field.insertBefore(button, field.firstChild);
+    if(history[0]){
+        numberOfEarliestMessage = history[0].number;
+        var button = document.createElement("input");
+        button.id = "load-messages-button";
+        button.addEventListener("click", () => requestNewMessages());
+        button.value = "Load new messages";
+        var field = document.getElementById("messages-field");
+        field.insertBefore(button, field.firstChild);
+    }
 }
 
 function loadNewMessages(channelPacket){
