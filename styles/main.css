@@ -1,82 +1,20 @@
-/*colors from https://flatuicolors.com/palette/defo */
-body{
+html {
     font-family: Arial, Helvetica, sans-serif; 
-    /*background-image: url(../images/backgroundImage.jpg);*/
-
-    margin:0px;
+	background-color: #dddddd;
+	margin: 0;
+	padding: 0;
 }
 
-html{
-    scroll-behavior: smooth;
-    --webkit-scroll-behavoir: smooth;
-    --moz-scroll-behavoir: smooth;
-    --o-scroll-behavoir: smooth;
-
-    background:
-    /* top, transparent black, faked with gradient */ 
-    linear-gradient(
-      rgba(0, 0, 0, 0.7), 
-      rgba(0, 0, 0, 0.7)
-    ),
-    /* bottom, image */
-    url(../images/backgroundImage.jpg);
-    background-repeat: repeat;
-    background-size: 2000px 2666px;
+h1 {
+	display: inline-block;
+	position: fixed;
+	top: 120px;
+	margin-left: 20px;
 }
 
-#top{
-    text-align: center;
+#logo {
+	display: inline-block;
+	height: 300px;
+	width: 300px;
 }
 
-#logoIMG{
-    width: 230px;
-    height: 130px;
-}
-
-#logo{
-    display: inline-block;
-    font-size: 32px;
-    font-weight: bold;
-    padding: 8px;
-    margin-top: 16px;
-}
-
-#logo-name{
-    font-size: 32px;
-    font-weight: bold;
-    margin: 16px;
-    color:#ecf0f1;
-}
-
-#navigation a{
-    color:#ecf0f1;
-    padding: 8px;
-}
-
-#navigation a:hover{
-    color: #bdc3c7;
-}
-
-#image img{
-    width: 100%;
-    margin-top:32px;
-    margin-bottom:32px;
-}
-
-#main{
-    width: 60%;
-    color: #ecf0f1;
-    margin:auto;
-    padding: 16px;
-}
-
-#footer{
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;   
-    color:#ecf0f1;
-    margin-top: 64px;
-}
-
-a{
-    color:#ecf0f1;
-}
