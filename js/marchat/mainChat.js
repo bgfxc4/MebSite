@@ -10,6 +10,7 @@ var activeChannel;
 var currentlyLoadedMessages = 0;
 var lastRequestIsNewChannel = false;
 var numberOfEarliestMessage = 0;
+
 window.addEventListener("load", () => {
 document.getElementById("message-field-div").hidden = true;
 
