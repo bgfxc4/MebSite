@@ -11,28 +11,19 @@ html{
     --webkit-scroll-behavoir: smooth;
     --moz-scroll-behavoir: smooth;
     --o-scroll-behavoir: smooth;
-
-    background:
-    /* top, transparent black, faked with gradient */ 
-    linear-gradient(
-      rgba(0, 0, 0, 0.7), 
-      rgba(0, 0, 0, 0.7)
-    ),
-    /* bottom, image */
-    url(../images/backgroundImage.jpg);
-    background-repeat: repeat;
-    background-size: 2000px 2666px;
+	
+	background-color: #bbbbbb;
 }
 
 h2{
     margin-top: 150px;
     text-align: center;
-    color:#ecf0f1;
+    color:#000000;
 }
 
 h3{
     text-align: center;
-    color:#ecf0f1;
+    color:#000000;
 }
 
 

@@ -10,7 +10,7 @@
     }catch{
     }
 
-    const socket = new WebSocket("wss://marchat.zapto.org/main-server");
+    const socket = new WebSocket("wss://bgfxc4.de/main-server");
 
     socket.onopen = async function(e) {
         console.log("[open] Connection established");
