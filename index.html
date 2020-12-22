@@ -5,32 +5,47 @@
         <link rel="stylesheet" href="styles/main.css" type="text/css" />
         <meta charset="utf8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="./js/generateProjectList.js"></script>
-        <script src="./js/animated_logo.js"></script>
 	</head/>
 	<body>
-		<img id="logo" src="/images/Logo.svg">
-		<h1>bgfxc4</h1>
-        <div id="main">
-            <section id="Unsere-Projekte">
-                <h2>Unsere Projekte</h2>
-                <p>
-                    <ul id="gitHubList">
-                        <li>
-                            <a target="_blank" href="https://play.google.com/store/search?q=pub:march+Games&c=apps"> Unsere Spiele im Google Play Store</a>
-                        </li>
-                    </ul>
-                </p>
-            </section>
-            <section id="Kontakt">
-                <h2>Kontakt</h2>
-                <p>
-                     Alle Emails bitte an marchGames@gmx.de
-                </p>
-            </section>
-        </div>
-        <div id="footer">
-            Copyright 2020 marchGames
+		<div id="top_logo">
+			<img id="logo_img" src="/images/Logo.svg">
+			<h1 id="logo_text">bgfxc4</h1>
+		</div>
+		<div id="main_div">
+			<div id="content">
+				<p id="navigators">
+				<a class="navigator_link" href="/login">Admin login</a>
+				<a class="navigator_link" href="/nextcloud">NextCloud</a>
+				</p>
+				<div id="Projects">
+					<h2 class="project_header">Some of my Projects</h2>
+					<div class="project">
+						<h3 class="project_header">bgfxc4s-bot</h3/>
+						<p class="project_text">
+							A discord bot that is still in development, written in TypeScript.
+							It has its own permission system and you can use him to take a look at news from the 
+							tagesschau, rocketlaunches and more.
+							<br><a class="project_link" href="https://github.com/bgfxc4/bgfxc4s-bot">Github repo</a>
+						</p>
+					</div>	
+
+					<div class="project">
+						<h3 class="project_header">Internefs</h3/>
+						<p class="project_text">
+							A self-written filesystem in C, that can be used like an usual filesystem to make http GET and POST requests.
+							<br><a class="project_link" href="https://github.com/bgfxc4/internefs">Github repo</a>
+						</p>
+					</div>
+					
+					<div class="project">
+						<h3 class="project_header">Some nice keks</h3/>
+						<p class="project_text">
+							<a class="project_link" href="https://github.com/llenck">a nice kek coding mainly in C</a>
+							<br><a class="project_link" href="https://github.com/MetaMuffin">a nice Muffin do really weird stuff</a>
+						</p>
+					</div>
+				</div>
+			</div>
         </div>
     </body>
 </html/>
