@@ -1,14 +1,15 @@
 html {
     font-family: Arial, Helvetica, sans-serif; 
 	background-color: #dddddd;
-	background-image: url("../images/background.png");
+
 	background-attachment: fixed;
 }
 
 body {
+	margin: 0;
 	position: absolute;
 	height: 100%;
-	width: 100%
+	width: 100%;
 }
 
 #top_logo {
@@ -90,6 +91,43 @@ body {
 	width: 100%;
 }
 
+#background {
+	margin: 0;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: fixed;
+	z-index: -100;
+	background: linear-gradient(48deg, #0000ff, #dd2266);
+	background-size: 150% 150%;
+
+    -webkit-animation: background_gradient 15s ease infinite;
+    -moz-animation: background_gradient 15s ease infinite;
+    -o-animation: background_gradient 15s ease infinite;
+    animation: background_gradient 15s ease infinite;
+}
+
+@-webkit-keyframes background_gradient {
+    0%{background-position:0% 69%}
+    50%{background-position:100% 32%}
+    100%{background-position:0% 69%}
+}
+@-moz-keyframes background_gradient {
+    0%{background-position:0% 69%}
+    50%{background-position:100% 32%}
+    100%{background-position:0% 69%}
+}
+@-o-keyframes background_gradient {
+    0%{background-position:0% 69%}
+    50%{background-position:100% 32%}
+    100%{background-position:0% 69%}
+}
+@keyframes background_gradient {
+    0%{background-position:0% 69%}
+    50%{background-position:100% 32%}
+    100%{background-position:0% 69%}
+}
 
 a {
 	color: #000
