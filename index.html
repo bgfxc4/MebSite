@@ -1,62 +1,30 @@
-<!DOCTYPE html>
 <html>
 	<head>
-		<title>MebSite</title>
-        <link rel="stylesheet" href="styles/main.css" type="text/css" />
-        <meta charset="utf8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="icon" href="data:;base64,iVBORw0KGgo=">
-	</head/>
+		<meta charset=utf8>
+		<title>bgfxc4</title>
+		<link rel="stylesheet" href="style/main.css">
+	</head>
 	<body>
-		<div id="background"></div>
-		<div id="top_logo">
-			<img id="logo_img" src="/images/Logo.svg">
-			<h1 id="logo_text">bgfxc4</h1>
-		</div>
-		<div id="main_div">
-			<div id="content">
-				<p id="navigators">
-				<a class="navigator_link" href="/login">Admin login</a>
-				<a class="navigator_link" href="/nextcloud">NextCloud</a>
+		<h1>bgfxc4</h1>
+		<div class="content_right">
+			<h2 class="header">chess</h2>
+			<div class="main_content">
+				<p class="description">
+					A simple and light weight chess game and probably also a chess engine in the future, written in C++
 				</p>
-				<div id="Projects">
-					<h2 class="project_header">Some of my Projects</h2>
-					<div class="project">
-						<h3 class="project_header">bgfxc4s-bot</h3/>
-						<p class="project_text">
-							A discord bot that is still in development, written in TypeScript.
-							It has its own permission system and you can use him to take a look at news from the 
-							tagesschau, rocketlaunches and more.
-							<br><a class="project_link" href="https://github.com/bgfxc4/bgfxc4s-bot">Github repo</a>
-						</p>
-					</div>	
-
-					<div class="project">
-						<h3 class="project_header">Internefs</h3/>
-						<p class="project_text">
-							A self-written filesystem in C, that can be used like an usual filesystem to make http GET and POST requests.
-							<br><a class="project_link" href="https://github.com/bgfxc4/internefs">Github repo</a>
-						</p>
-					</div>
-					
-					<div class="project">
-						<h3 class="project_header">url-fuckifier</h3/>
-						<p class="project_text">
-							A tool that can help you beautify your URL.
-							<br><a class="project_link" href="https://github.com/bgfxc4/internefs">Github repo</a>
-							<br><a class="project_link" href="https://bgfxc4.de/url-fuckifier">Example</a>
-						</p>
-					</div>
-
-					<div class="project">
-						<h3 class="project_header">Some nice keks</h3/>
-						<p class="project_text">
-							<a class="project_link" href="https://github.com/llenck">a nice kek coding mainly in C</a>
-							<br><a class="project_link" href="https://github.com/MetaMuffin">a nice Muffin doing really weird stuff</a>
-						</p>
-					</div>
-				</div>
+				<img class="project_img" src="images/project_pictures/chess_picture.png">
 			</div>
-        </div>
-    </body>
+		</div>
+
+		<div class="content_left">
+			<div class="main_content">			
+				<img class="project_img" src="images/project_pictures/internefs_picture.png">
+				<p class="description">
+					A selfwritten filesystem, that can't be used for accesing your hard drive, but for accesing the internet over GET, POST and HEAD http requests. It is written in C using libfuse.
+				</p>
+			</div>
+			<h2 class="header">internefs</h2>
+		</div>
+
+	</body/>
 </html/>
