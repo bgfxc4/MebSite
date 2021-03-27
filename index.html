@@ -3,28 +3,47 @@
 		<meta charset=utf8>
 		<title>bgfxc4</title>
 		<link rel="stylesheet" href="style/main.css">
+		<script src="js/darkmode.js"></script>
 	</head>
 	<body>
 		<h1>bgfxc4</h1>
-		<div class="content_right">
+
+		<div class="theme-switch-wrapper">
+			<label class="theme-switch" for="darkmode_checkbox">
+				<input type="checkbox" id="darkmode_checkbox" />
+				<div class="slider round"></div>
+		  </label>
+		  <em>Dark Mode</em>
+		</div>
+
+		<div class="content_right">	
 			<h2 class="header">chess</h2>
 			<div class="main_content">
 				<p class="description">
-					A simple and light weight chess game and probably also a chess engine in the future, written in C++
+				A simple and light weight chess game and probably also a chess engine in the future, written in C++ <br> <a class="link" href="https://github.com/bgfxc4/chess">GitHub</a>
 				</p>
 				<img class="project_img" src="images/project_pictures/chess_picture.png">
 			</div>
 		</div>
 
-		<div class="content_left">
-			<div class="main_content">			
-				<img class="project_img" src="images/project_pictures/internefs_picture.png">
-				<p class="description">
-					A selfwritten filesystem, that can't be used for accesing your hard drive, but for accesing the internet over GET, POST and HEAD http requests. It is written in C using libfuse.
-				</p>
-			</div>
+		<div class="content_right">
 			<h2 class="header">internefs</h2>
+			<div class="main_content">
+				<p class="description">
+					A selfwritten filesystem, that can't be used for accesing your hard drive, but for accesing the internet over GET, POST and HEAD http requests. It is written in C using libfuse. <br> <a class="link" href="https://github.com/bgfxc4/internefs">GitHub</a>
+				</p>
+				<img class="project_img" src="images/project_pictures/internefs_picture.png">
+			</div>
 		</div>
 
+		<div class="content_right">
+			<h2 class="header">bgfxc4's bot</h2>
+			<div class="main_content">
+				<p class="description">
+					A discord bot, that can do multiple things, for example manage roles, move users and has its own permission system using mongodb.<br> <a class="link" href="https://github.com/bgfxc4/bgfxc4s-bot">GitHub</a>
+				</p>
+				<img class="project_img" src="images/project_pictures/bgfxc4sbot_picture.png">
+			</div>
+		</div>
 	</body/>
 </html/>
